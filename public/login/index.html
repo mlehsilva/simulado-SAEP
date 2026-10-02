@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFix - Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="login-body">
+    <div class="login-card">
+        <h3>AutoFix Mecânica</h3>
+        <p style="text-align: center; color: #6c757d; font-size: 14px; margin-bottom: 20px;">Entre com suas credenciais de acesso</p>
+        
+        <div id="mensagemErro" style="display: none; background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 4px; text-align: center; margin-bottom: 15px; font-size: 14px;"></div>
+
+        <form id="formLogin">
+            <div class="login-group">
+                <label>E-mail profissional:</label>
+                <input type="email" id="email" class="form-control" required placeholder="nome@autofix.com">
+            </div>
+            <div class="login-group">
+                <label>Senha:</label>
+                <input type="password" id="senha" class="form-control" required placeholder="******">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Acessar Sistema</button>
+        </form>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFix - Gestão de Clientes</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="header-container">
+        <h2>👥 Gestão de Clientes</h2>
+        <a href="/dashboard/index.html" class="btn btn-secondary">Voltar ao Menu</a>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="inputBusca" class="form-control" placeholder="🔍 Digite o Nome ou CPF para filtrar na lista...">
+        <button onclick="carregarClientes()" class="btn btn-primary">Buscar</button>
+    </div>
+
+    <div class="card">
+        <h5>Novo Registro de Cliente</h5>
+        <form id="formCliente">
+            <div class="form-grid">
+                <input type="text" id="nome" placeholder="Nome Completo" class="form-control" required>
+                <input type="text" id="cpf" placeholder="CPF (Apenas números)" class="form-control" required>
+                <input type="text" id="telefone" placeholder="Telefone de contato" class="form-control">
+                <input type="email" id="email" placeholder="E-mail" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Salvar no Banco</button>
+        </form>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome do Cliente</th>
+                <th>CPF (Seguro LGPD)</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaClientes"></tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>

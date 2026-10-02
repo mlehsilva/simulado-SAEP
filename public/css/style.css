@@ -1,0 +1,188 @@
+/* Configurações Globais / Reset */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 30px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Cabeçalhos e Containers */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin: 0;
+    color: #212529;
+}
+
+/* Botões do Sistema */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-secondary { background-color: #6c757d; color: white; }
+.btn-secondary:hover { background-color: #5a6268; }
+
+.btn-primary { background-color: #0d6efd; color: white; }
+.btn-primary:hover { background-color: #0b5ed7; }
+
+.btn-success { background-color: #198754; color: white; }
+.btn-success:hover { background-color: #157347; }
+
+.btn-danger { background-color: #dc3545; color: white; padding: 4px 8px; font-size: 12px; }
+.btn-danger:hover { background-color: #bb2d3b; }
+
+/* Filtros e Inputs */
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.form-control {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.search-container .btn {
+    width: 120px;
+}
+
+/* Painéis (Cards) de Formulário */
+.card {
+    background: white;
+    border: 1px solid #e3e6f0;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.05);
+}
+
+.card h5 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #198754;
+    font-size: 16px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+/* Tabelas de Dados */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.05);
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 14px;
+}
+
+.table th {
+    background-color: #212529;
+    color: white;
+    font-weight: 600;
+}
+
+.table tr:hover {
+    background-color: #f1f3f5;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #212529;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* Estilos específicos para a Tela de Login */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f1f3f5;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.login-card h3 {
+    margin-top: 0;
+    text-align: center;
+    color: #0d6efd;
+}
+
+.login-group {
+    margin-bottom: 15px;
+}
+
+.login-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Estilos específicos para o Dashboard */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.menu-card {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.menu-card h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}

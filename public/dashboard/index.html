@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFix - Dashboard</title>
+    <<link rel="stylesheet" href="../css/style.css">
+    <style>
+        .navbar { display: flex; justify-content: space-between; align-items: center; background-color: #212529; color: white; padding: 15px 30px; margin: -30px -30px 30px -30px; }
+        .navbar-brand { font-size: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span class="navbar-brand">🛠️ AutoFix Oficina</span>
+        <div>
+            Olá, <strong style="color: #ffc107;" id="nomeUsuario">...</strong>! | 
+            <button onclick="fazerLogout()" class="btn btn-danger" style="padding: 4px 10px;">Sair / Logout</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 10px;">Painel de Controle Principal</h2>
+        <p style="text-align: center; color: #6c757d; margin-bottom: 30px;">Gerenciamento interno da oficina mecânica</p>
+        
+        <div class="dashboard-grid">
+            <div class="menu-card">
+                <h4 style="color: #0d6efd;">👥 Clientes</h4>
+                <p style="color: #6c757d; font-size: 14px; min-height: 40px;">Gerencie dados cadastrais, CPFs e contatos com segurança de dados (LGPD).</p>
+                <a href="cliente.html" class="btn btn-primary" style="margin-top: 15px; display: block;">Acessar Clientes</a>
+            </div>
+            <div class="menu-card">
+                <h4 style="color: #198754;">🚗 Veículos</h4>
+                <p style="color: #6c757d; font-size: 14px; min-height: 40px;">Cadastre frotas e carros vinculados diretamente aos donos.</p>
+                <a href="veiculos.html" class="btn btn-success" style="margin-top: 15px; display: block;">Acessar Veículos</a>
+            </div>
+            <div class="menu-card">
+                <h4 style="color: #ffc107; color: #333;">📋 Ordens de Serviço</h4>
+                <p style="color: #6c757d; font-size: 14px; min-height: 40px;">Abra ordens de manutenção mecânica, controle status e orçamentos finais.</p>
+                <a href="os.html" class="btn btn-secondary" style="margin-top: 15px; display: block; background-color: #f0ad4e; color: #333;">Acessar Ordens</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  database:
+    image: mysql:8.0
+    container_name: meu-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'autofix'
+      MYSQL_ROOT_PASSWORD: 'autofix@2023'
+    ports:
+      - '3306:3306'
+    volumes:
+      - autofix_db_data:/var/lib/mysql
+      - ./init_db:/docker-entrypoint-initdb.d
+
+volumes:
+  autofix_db_data:
