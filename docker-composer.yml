@@ -3,7 +3,7 @@ version: '3.8'
 services:
   database:
     image: mysql:8.0
-    container_name: meu-mysql
+    container_name: autofix_db_data
     restart: always
     environment:
       MYSQL_DATABASE: 'autofix'

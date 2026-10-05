@@ -3,7 +3,7 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const CryptoJS = require('crypto-js');
 const path = require('path');
-const db = require('./db'); // Puxa a conexão do seu arquivo db.js
+const db = require('./db');
 
 const app = express();
 const SECRET_KEY = 'autofix_lgpd_secret'; // Chave para criptografar os CPFs
@@ -64,7 +64,7 @@ app.get('/api/logout', (req, res) => {
     res.json({ sucesso: true });
 });
 
-// ================= API GESTÃO DE CLIENTES =================
+// ================= GESTÃO DE CLIENTES =================
 app.get('/api/clientes', verificarAutenticacao, (req, res) => {
     const busca = req.query.busca || '';
     
@@ -109,7 +109,7 @@ app.delete('/api/clientes/:id', verificarAutenticacao, (req, res) => {
     });
 });
 
-// ================= API GESTÃO DE VEÍCULOS =================
+// ================= GESTÃO DE VEÍCULOS =================
 app.get('/api/veiculos', verificarAutenticacao, (req, res) => {
     db.query('SELECT v.*, c.nome as dono FROM veiculos v JOIN clientes c ON v.cliente_id = c.id', (err, results) => {
         if (err) return res.status(500).json({ erro: err.message });
@@ -126,7 +126,7 @@ app.post('/api/veiculos', verificarAutenticacao, (req, res) => {
     });
 });
 
-// ================= API ORDENS DE SERVIÇO (OS) =================
+// ================= ORDENS DE SERVIÇO (OS) =================
 app.get('/api/ordens-servico', verificarAutenticacao, (req, res) => {
     const query = `
         SELECT os.*, c.nome as cliente_nome, v.modelo as veiculo_modelo, v.placa as veiculo_placa 
@@ -142,9 +142,29 @@ app.get('/api/ordens-servico', verificarAutenticacao, (req, res) => {
 });
 
 app.post('/api/ordens-servico', verificarAutenticacao, (req, res) => {
-    const { descricao_problema, valor_total, cliente_id, veiculo_id } = req.body;
-    db.query('INSERT INTO ordens_servico (descricao_problema, valor_total, cliente_id, veiculo_id) VALUES (?, ?, ?, ?)', 
-    [descricao_problema, valor_total, cliente_id, veiculo_id], (err) => {
+    const { descricao_problema, valor_total, cliente_id, veiculo_id, situacao } = req.body;
+    
+    // Tratamento explícito para garantir que uma string válida seja gravada caso venha vazio/undefined
+    const statusFinal = (situacao && situacao.trim() !== '') ? situacao : 'Não Iniciado';
+    
+    db.query('INSERT INTO ordens_servico (descricao_problema, valor_total, cliente_id, veiculo_id, situacao) VALUES (?, ?, ?, ?, ?)', 
+    [descricao_problema, valor_total, cliente_id, veiculo_id, statusFinal], (err, results) => {
+        if (err) return res.status(500).json({ erro: err.message });
+        
+        // Retorna sucesso estruturado exatamente como o frontend espera obter (resultado.sucesso)
+        res.json({ sucesso: true, id: results.insertId });
+    });
+});
+
+app.put('/api/ordens-servico/:id/situacao', verificarAutenticacao, (req, res) => {
+    const { id } = req.params;
+    const { situacao } = req.body;
+
+    if (!situacao) {
+        return res.status(400).json({ erro: 'A situação não foi informada.' });
+    }
+
+    db.query('UPDATE ordens_servico SET situacao = ? WHERE id = ?', [situacao, id], (err) => {
         if (err) return res.status(500).json({ erro: err.message });
         res.json({ sucesso: true });
     });
